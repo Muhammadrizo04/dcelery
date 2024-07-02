@@ -1,0 +1,17 @@
+version: '3.8'
+
+service:
+
+  django:
+    container_name: django
+    build:
+      context: ./
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/usr/src/app/
+    ports:
+      - 8001:8000
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=django-insecure-dpgnyfs7*ip&i&0v)*wq(yqv)9xj4&ti8rglke*nsvl2#re+%!
+      - ALLOWED_HOSTS=localhost,127.0.0.1
